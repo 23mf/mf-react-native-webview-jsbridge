@@ -12,6 +12,8 @@ import {
   View
 } from 'react-native';
 
+import { WebView } from 'mf-react-native-webview-jsbridge';
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -33,6 +35,10 @@ export default class App extends Component<Props> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
+        {/* <WebView
+          source={{ uri: 'https://www.baidu.com/' }}
+          originWhitelist={['https://*', 'http://*', 'file://*']}
+        /> */}
       </View>
     );
   }

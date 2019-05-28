@@ -58,7 +58,7 @@
   "files": [
     "android",
     "ios",
-    "lib",
+    "src",
     "index.js",
     "index.d.ts",
     "react-native-webview.podspec"

@@ -5,8 +5,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, BackHandler, Linking, Platform } from 'react-native';
 import PropTypes from 'prop-types';
 import { isEmpty, isUndefined, isEqual } from 'lodash';
-import common from './common';
-import MFWebview from './lib/WebView';
+import MFWebview from './src/WebView';
 
 const patchPostMessageFunction = () => {
   const originalPostMessage = window.postMessage;
@@ -32,7 +31,6 @@ export default class Webview extends Component {
     clearHistory: PropTypes.bool,
     onLoadEnd: PropTypes.func,
     deviceId: PropTypes.string,
-    isFullSrceen: PropTypes.bool,
     handleUriCallback: PropTypes.func,
     onMessage: PropTypes.func,
     onLoadStart: PropTypes.func,
@@ -41,16 +39,10 @@ export default class Webview extends Component {
   static defaultProps = {
     allowsBackForwardNavigationGestures: true,
     clearHistory: false,
-    isFullSrceen: false,
   };
 
   constructor(props) {
     super(props);
-    this.state = {
-      isTopPage: true,
-      isOurselfWeb: true,
-      loading: true,
-    };
     // 回调栈
     this.callbackQueue = {};
     this.uniqueId = 0;
