@@ -1,5 +1,5 @@
 {
-  "name": "23mofang-react-native-webview",
+  "name": "mf-react-native-webview-jsbridge",
   "description": "React Native WebView component for iOS, Android",
   "main": "index.js",
   "typings": "typings/index.d.ts",
