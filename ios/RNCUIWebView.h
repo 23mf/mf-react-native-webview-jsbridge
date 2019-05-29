@@ -36,4 +36,9 @@ shouldStartLoadForRequest:(NSMutableDictionary<NSString *, id> *)request
 - (void)postMessage:(NSString *)message;
 - (void)injectJavaScript:(NSString *)script;
 
+/// jsBridge
+- (void)registerHandler: (NSString *)handerName withCallbackId: (NSString *)callbackId withData: (id)dict;
+- (void)callHandler: (NSString *)handerName withCallbackId: (NSString *)callbackId withData: (id)dict;
+
+
 @end

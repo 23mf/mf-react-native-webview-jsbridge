@@ -8,6 +8,7 @@
 #import <React/RCTUtils.h>
 #import <React/RCTView.h>
 #import <React/UIView+React.h>
+#import "WebViewJavascriptBridge.h"
 
 NSString *const RNCJSNavigationScheme = @"react-js-navigation";
 
@@ -20,6 +21,7 @@ static NSString *const MessageHandlerName = @"ReactNativeWebView";
 @property (nonatomic, copy) RCTDirectEventBlock onLoadingError;
 @property (nonatomic, copy) RCTDirectEventBlock onShouldStartLoadWithRequest;
 @property (nonatomic, copy) RCTDirectEventBlock onMessage;
+@property (nonatomic, strong) WebViewJavascriptBridge* bridge;
 
 @end
 
@@ -47,6 +49,8 @@ static NSString *const MessageHandlerName = @"ReactNativeWebView";
       _webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
 #endif
+    _bridge = [WebViewJavascriptBridge bridgeForWebView:_webView];
+    [_bridge setWebViewDelegate:self];
     [self addSubview:_webView];
   }
   return self;

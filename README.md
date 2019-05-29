@@ -6,7 +6,6 @@
 
 - [x] iOS (both UIWebView and WKWebView)
 - [x] Android
-- [ ] Windows 10 (coming soon)
 
 _Note: React Native WebView is not currently supported by Expo unless you "eject"._
 
@@ -66,12 +65,6 @@ Simply install React Native WebView and then use it in place of the core WebView
 - If you want to add another React Native platform to this repository, you will need to create another `.flowconfig` for it. If your platform is `example`, copy the main flowconfig and rename it to `.flowconfig.example`. Then edit the config to ignore other platforms, and add `.*/*[.]example.js` to the ignore lists of the other platforms. Then add an entry to `package.json` like this:
   - `"test:example:flow": "flow check --flowconfig-name .flowconfig.example"`
 - Currently you need to install React Native 0.57 to be able to test these types - `flow check` will not pass against 0.56.
-
-## Maintainers
-
-- [Jamon Holmgren](https://github.com/jamonholmgren) ([Twitter @jamonholmgren](https://twitter.com/jamonholmgren)) from [Infinite Red](https://infinite.red/react-native)
-- [Thibault Malbranche](https://github.com/Titozzz) ([Twitter @titozzz](https://twitter.com/titozzz)) from [Brigad](https://brigad.co/about)
-- [Empyrical](https://github.com/empyrical) ([Twitter @empyrical](https://twitter.com/empyrical))
 
 ## License
 

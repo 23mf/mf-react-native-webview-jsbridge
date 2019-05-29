@@ -167,7 +167,7 @@ RCT_EXPORT_METHOD(stopLoading:(nonnull NSNumber *)reactTag)
   }];
 }
 
-#pragma mark - Exported synchronous methods
+#pragma mark - jsbridge methods
 /**
  - (void)registerHandler: (NSString *)handerName withCallbackId: (NSString *)callbackId withData: (NSDictionary *)data;
  - (void)callHandler: (NSString *)handerName withCallbackId: (NSString *)callbackId withData: (NSDictionary *)data;

@@ -34,11 +34,14 @@ export default class WebView extends Component {
     handleUriCallback: PropTypes.func,
     onMessage: PropTypes.func,
     onLoadStart: PropTypes.func,
+    originWhitelist: PropTypes.arrayOf(PropTypes.string),
   };
 
   static defaultProps = {
+    uri: '',
     allowsBackForwardNavigationGestures: true,
     clearHistory: false,
+    originWhitelist: ['https://*', 'http://*', 'file://*'],
   };
 
   constructor(props) {
@@ -55,30 +58,25 @@ export default class WebView extends Component {
   render() {
     const {
       allowsBackForwardNavigationGestures,
-      injectedJavaScript, uri, headers, onNavigationStateChange, renderError, onMessage, onLoadStart } = this.props;
+      injectedJavaScript, uri, headers, onNavigationStateChange, renderError, onMessage, onLoadStart, originWhitelist } = this.props;
     return (
-      <View style={styles.container}>
-        {/* {
-          !isEmpty(uri) &&
-          <MFWebView
-            {...this.props}
-            ref={refs => (this.webviewRef = refs)}
-            source={{ uri, headers }}
-            renderError={renderError}
-            userAgent={userAgent}
-            useWebKit
-            allowsBackForwardNavigationGestures={allowsBackForwardNavigationGestures}
-            onNavigationStateChange={onNavigationStateChange}
-            javaScriptEnabled
-            onMessage={onMessage}
-            injectedJavaScript={`${patchPostMessageJsCode}${injectedJavaScript}`}
-            onLoadStart={onLoadStart}
-            onLoadEnd={this.onLoadEnd}
-            onJsCallbackFunction={this.onJsCallbackFunction}
-            originWhitelist={['https://*', 'http://*', 'file://*']}
-          />
-        } */}
-      </View>
+      <MFWebView
+        {...this.props}
+        ref={refs => (this.webviewRef = refs)}
+        source={{ uri, headers }}
+        renderError={renderError}
+        userAgent={userAgent}
+        useWebKit
+        allowsBackForwardNavigationGestures={allowsBackForwardNavigationGestures}
+        onNavigationStateChange={onNavigationStateChange}
+        javaScriptEnabled
+        onMessage={onMessage}
+        injectedJavaScript={`${patchPostMessageJsCode}${injectedJavaScript}`}
+        onLoadStart={onLoadStart}
+        onLoadEnd={this.onLoadEnd}
+        onJsCallbackFunction={this.onJsCallbackFunction}
+        originWhitelist={originWhitelist}
+      />
     );
   }
 
@@ -167,10 +165,4 @@ export default class WebView extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'rgba(250, 250, 250, 0.9)',
-  },
-});
 
