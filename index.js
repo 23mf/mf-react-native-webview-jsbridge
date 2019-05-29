@@ -21,24 +21,18 @@ const patchPostMessageJsCode = `(${String(patchPostMessageFunction)})();`;
 
 export default class WebView extends Component {
   static propTypes = {
-    uri: PropTypes.string,
-    headers: PropTypes.object,
-    handleMessage: PropTypes.func,
     renderError: PropTypes.func,
     onNavigationStateChange: PropTypes.func,
     allowsBackForwardNavigationGestures: PropTypes.bool,
     injectedJavaScript: PropTypes.string,
     clearHistory: PropTypes.bool,
     onLoadEnd: PropTypes.func,
-    deviceId: PropTypes.string,
-    handleUriCallback: PropTypes.func,
     onMessage: PropTypes.func,
     onLoadStart: PropTypes.func,
     originWhitelist: PropTypes.arrayOf(PropTypes.string),
   };
 
   static defaultProps = {
-    uri: '',
     allowsBackForwardNavigationGestures: true,
     clearHistory: false,
     originWhitelist: ['https://*', 'http://*', 'file://*'],
@@ -58,15 +52,12 @@ export default class WebView extends Component {
   render() {
     const {
       allowsBackForwardNavigationGestures,
-      injectedJavaScript, uri, headers, onNavigationStateChange, renderError, onMessage, onLoadStart, originWhitelist } = this.props;
+      injectedJavaScript, onNavigationStateChange, renderError, onMessage, onLoadStart, originWhitelist } = this.props;
     return (
       <MFWebView
         {...this.props}
         ref={refs => (this.webviewRef = refs)}
-        source={{ uri, headers }}
         renderError={renderError}
-        userAgent={userAgent}
-        useWebKit
         allowsBackForwardNavigationGestures={allowsBackForwardNavigationGestures}
         onNavigationStateChange={onNavigationStateChange}
         javaScriptEnabled

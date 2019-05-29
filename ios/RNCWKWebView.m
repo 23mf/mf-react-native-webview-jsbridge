@@ -36,7 +36,9 @@ static NSURLCredential* clientAuthenticationCredential;
 @property (nonatomic, copy) RCTDirectEventBlock onShouldStartLoadWithRequest;
 @property (nonatomic, copy) RCTDirectEventBlock onMessage;
 @property (nonatomic, copy) RCTDirectEventBlock onScroll;
+@property (nonatomic, copy) RCTDirectEventBlock onJsCallbackFunction;
 @property (nonatomic, strong) WebViewJavascriptBridge* bridge;
+@property (nonatomic, strong) NSMutableSet * handerNameSet;
 @property (nonatomic, copy) WKWebView *webView;
 @end
 
@@ -67,6 +69,7 @@ static NSURLCredential* clientAuthenticationCredential;
     _savedKeyboardDisplayRequiresUserAction = YES;
     _savedStatusBarStyle = RCTSharedApplication().statusBarStyle;
     _savedStatusBarHidden = RCTSharedApplication().statusBarHidden;
+    _handerNameSet = [NSMutableSet set];
   }
 
   if (@available(iOS 12.0, *)) {
@@ -85,7 +88,7 @@ static NSURLCredential* clientAuthenticationCredential;
     // https://github.com/react-native-community/react-native-webview/issues/62
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(toggleFullScreenVideoStatusBars) name:@"_MRMediaRemotePlayerSupportedCommandsDidChangeNotification" object:nil];
   }
-  
+  [self setupWebView];
   return self;
 }
 
@@ -887,6 +890,29 @@ static NSURLCredential* clientAuthenticationCredential;
     }
   }
   return request;
+}
+
+- (void)registerHandler: (NSString *)handerName withCallbackId: (NSString *)callbackId withData: (id)dict {
+      [_handerNameSet addObject:handerName];
+      [_bridge registerHandler:handerName handler:^(id data, WVJBResponseCallback responseCallback) {
+            if (_onJsCallbackFunction != nil) {
+                  NSMutableDictionary<NSString *, id> *event = [self baseEvent];
+                  [event addEntriesFromDictionary: @{@"callbackId": callbackId, @"data": data}];
+                  _onJsCallbackFunction(event);
+            }
+            responseCallback(dict);
+      }];
+}
+
+- (void)callHandler: (NSString *)handerName withCallbackId: (NSString *)callbackId withData: (id)dict {
+      [_handerNameSet addObject:handerName];
+      [_bridge callHandler:handerName data:dict responseCallback:^(id responseData) {
+            if (_onJsCallbackFunction != nil) {
+                  NSMutableDictionary<NSString *, id> *event = [self baseEvent];
+                  [event addEntriesFromDictionary: @{@"callbackId": callbackId, @"data": responseData}];
+                  _onJsCallbackFunction(event);
+            }
+      }];
 }
 
 @end

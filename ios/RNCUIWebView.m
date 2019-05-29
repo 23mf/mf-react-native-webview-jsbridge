@@ -21,7 +21,9 @@ static NSString *const MessageHandlerName = @"ReactNativeWebView";
 @property (nonatomic, copy) RCTDirectEventBlock onLoadingError;
 @property (nonatomic, copy) RCTDirectEventBlock onShouldStartLoadWithRequest;
 @property (nonatomic, copy) RCTDirectEventBlock onMessage;
+@property (nonatomic, copy) RCTDirectEventBlock onJsCallbackFunction;
 @property (nonatomic, strong) WebViewJavascriptBridge* bridge;
+@property (nonatomic, strong) NSMutableSet * handerNameSet;
 
 @end
 
@@ -49,6 +51,7 @@ static NSString *const MessageHandlerName = @"ReactNativeWebView";
       _webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
 #endif
+    _handerNameSet = [NSMutableSet set];
     _bridge = [WebViewJavascriptBridge bridgeForWebView:_webView];
     [_bridge setWebViewDelegate:self];
     [self addSubview:_webView];
@@ -330,6 +333,29 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
   else if (_onLoadingFinish && !webView.loading && ![webView.request.URL.absoluteString isEqualToString:@"about:blank"]) {
     _onLoadingFinish([self baseEvent]);
   }
+}
+
+- (void)registerHandler: (NSString *)handerName withCallbackId: (NSString *)callbackId withData: (id)dict {
+      [_handerNameSet addObject:handerName];
+      [_bridge registerHandler:handerName handler:^(id data, WVJBResponseCallback responseCallback) {
+            if (_onJsCallbackFunction != nil) {
+                  NSMutableDictionary<NSString *, id> *event = [self baseEvent];
+                  [event addEntriesFromDictionary: @{@"callbackId": callbackId, @"data": data}];
+                  _onJsCallbackFunction(event);
+            }
+            responseCallback(dict);
+      }];
+}
+
+- (void)callHandler: (NSString *)handerName withCallbackId: (NSString *)callbackId withData: (id)dict {
+      [_handerNameSet addObject:handerName];
+      [_bridge callHandler:handerName data:dict responseCallback:^(id responseData) {
+            if (_onJsCallbackFunction != nil) {
+                  NSMutableDictionary<NSString *, id> *event = [self baseEvent];
+                  [event addEntriesFromDictionary: @{@"callbackId": callbackId, @"data": responseData}];
+                  _onJsCallbackFunction(event);
+            }
+      }];
 }
 
 @end
