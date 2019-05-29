@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, BackHandler, Linking, Platform } from 'react-native';
 import PropTypes from 'prop-types';
 import { isEmpty, isUndefined, isEqual } from 'lodash';
-import MFWebview from './src/WebView';
+import MFWebView from './js/WebView';
 
 const patchPostMessageFunction = () => {
   const originalPostMessage = window.postMessage;
@@ -19,7 +19,7 @@ const patchPostMessageFunction = () => {
 };
 const patchPostMessageJsCode = `(${String(patchPostMessageFunction)})();`;
 
-export default class Webview extends Component {
+export default class WebView extends Component {
   static propTypes = {
     uri: PropTypes.string,
     headers: PropTypes.object,
@@ -58,9 +58,9 @@ export default class Webview extends Component {
       injectedJavaScript, uri, headers, onNavigationStateChange, renderError, onMessage, onLoadStart } = this.props;
     return (
       <View style={styles.container}>
-        {
+        {/* {
           !isEmpty(uri) &&
-          <MFWebview
+          <MFWebView
             {...this.props}
             ref={refs => (this.webviewRef = refs)}
             source={{ uri, headers }}
@@ -77,7 +77,7 @@ export default class Webview extends Component {
             onJsCallbackFunction={this.onJsCallbackFunction}
             originWhitelist={['https://*', 'http://*', 'file://*']}
           />
-        }
+        } */}
       </View>
     );
   }
@@ -174,5 +174,3 @@ const styles = StyleSheet.create({
   },
 });
 
-export { WebView };
-export default WebView;
