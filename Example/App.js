@@ -39,7 +39,7 @@ export default class App extends Component {
           ref={refs => (this.webviewRef = refs)}
           useWebKit
           style={{ width: size.width, height: size.height - 20 }}
-          source={ Platform.OS === 'ios' ? require('./jsbridge.html') : {uri: 'https://www.baidu.com'}}
+          source={ Platform.OS === 'ios' ? require('./jsbridge.html') : {uri: 'file:///android_asset/jsbridge.html'}}
         />
       </View>
     );
