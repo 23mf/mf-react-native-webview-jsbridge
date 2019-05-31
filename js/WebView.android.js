@@ -7,20 +7,20 @@
  * @providesModule x5webView from tencent
  */
 
-const EdgeInsetsPropType = require('EdgeInsetsPropType');
-const ActivityIndicator = require('ActivityIndicator');
-const React = require('React');
-const PropTypes = require('prop-types');
-const ReactNative = require('ReactNative');
-const StyleSheet = require('StyleSheet');
-const UIManager = require('UIManager');
-const View = require('View');
-const ViewPropTypes = require('ViewPropTypes');
-
-const deprecatedPropType = require('deprecatedPropType');
-const keyMirror = require('fbjs/lib/keyMirror');
-const requireNativeComponent = require('requireNativeComponent');
-const resolveAssetSource = require('resolveAssetSource');
+import { 
+  ActivityIndicator,
+  StyleSheet,
+  UIManager,
+  View,
+  ViewPropTypes,
+  requireNativeComponent,
+  Image,
+} from 'react-native';
+import React from 'react';
+import PropTypes from'prop-types';
+import ReactNative from 'react-native';
+import keyMirror from 'fbjs/lib/keyMirror';
+const resolveAssetSource = Image.resolveAssetSource;
 
 const WebViewState = keyMirror({
   IDLE: null,
@@ -57,7 +57,7 @@ class MFWebView extends React.Component {
     onLoadStart: PropTypes.func,
     onError: PropTypes.func,
     automaticallyAdjustContentInsets: PropTypes.bool,
-    contentInset: EdgeInsetsPropType,
+    contentInset: PropTypes.object,
     onNavigationStateChange: PropTypes.func,
     onMessage: PropTypes.func,
     onContentSizeChange: PropTypes.func,
@@ -65,15 +65,9 @@ class MFWebView extends React.Component {
     style: ViewPropTypes.style,
     onJsCallbackFunction: PropTypes.func,
 
-    html: deprecatedPropType(
-            PropTypes.string,
-            'Use the `source` prop instead.'
-        ),
+    html:  PropTypes.string,
 
-    url: deprecatedPropType(
-            PropTypes.string,
-            'Use the `source` prop instead.'
-        ),
+    url:  PropTypes.string,
 
         /**
          * Loads static html or a uri (with optional headers) in the WebView.

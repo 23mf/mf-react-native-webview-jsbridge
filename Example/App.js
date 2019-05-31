@@ -12,6 +12,7 @@ import {
   Text,
   Alert,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 
 import WebView from 'mf-react-native-webview-jsbridge';
@@ -38,7 +39,7 @@ export default class App extends Component {
           ref={refs => (this.webviewRef = refs)}
           useWebKit
           style={{ width: size.width, height: size.height - 20 }}
-          source={require('./jsbridge.html')}
+          source={ Platform.OS === 'ios' ? require('./jsbridge.html') : {uri: 'https://www.baidu.com'}}
         />
       </View>
     );
