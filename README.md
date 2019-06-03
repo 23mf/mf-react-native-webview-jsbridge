@@ -1,6 +1,6 @@
 # React Native WebView jsbridge - Complete the Correspondence between web and Native
 
-**React Native WebView jsbridge** 是在[react-native-community/react-native-webview](https://github.com/react-native-community/react-native-webview)基础上开发的实现的native与web的通信。
+**React Native WebView jsbridge** 是在[react-native-community/react-native-webview](https://github.com/react-native-community/react-native-webview)基础上开发的native与web的通信，做到开箱即用。
 
 ## 支持的平台
 
@@ -24,12 +24,13 @@ $ react-native link mf-react-native-webview-jsbridge
 ```
 
 
-##手动安装
-###iOS
+## 手动安装
+
+**iOS**
 1. `Libraries`文件下右键`Add Files to 'xxx'...`,添加`RNCWebView.xcodeproj`.
 2. 在`Linked Frameworks and Libraries`添加`libRNCWebView.a`
 
-###Android
+**Android**
 1. 在你的工程下的`android/settings.gradle`:
 
 ```java
