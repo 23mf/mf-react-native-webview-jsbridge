@@ -5,7 +5,7 @@
   "typings": "typings/index.d.ts",
   "author": "open@23mofang.com",
   "license": "MIT",
-  "version": "0.1.6",
+  "version": "1.0.0",
   "homepage": "https://github.com/23mf/mf-react-native-webview-jsbridge.git#readme",
   "scripts": {
     "test:ios:flow": "flow check",

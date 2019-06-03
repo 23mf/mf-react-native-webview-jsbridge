@@ -900,7 +900,7 @@ static NSURLCredential* clientAuthenticationCredential;
                   [event addEntriesFromDictionary: @{@"callbackId": callbackId, @"data": data}];
                   _onJsCallbackFunction(event);
             }
-            responseCallback(dict);
+            responseCallback(@{ @"code": @0, @"data": dict });
       }];
 }
 
