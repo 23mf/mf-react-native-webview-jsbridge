@@ -13,7 +13,11 @@
     "ci:publish": "yarn semantic-release",
     "ci:test": "yarn ci:test:flow",
     "ci:test:flow": "yarn test:ios:flow && yarn test:android:flow",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "flow": "flow",
+    "flow-check-ios": "flow check",
+    "flow-check-android": "flow check --flowconfig-name .flowconfig.android",
+    "lint": "eslint ."
   },
   "peerDependencies": {
     "react": "^16.0",
