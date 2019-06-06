@@ -35,7 +35,6 @@ install:
   - appveyor-retry yarn install
 
 build_script:
-  - yarn run test
   # - gradlew.bat RNTester:android:app:assembleRelease
 
 cache:
