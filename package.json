@@ -8,15 +8,11 @@
   "version": "1.0.0",
   "homepage": "https://github.com/23mf/mf-react-native-webview-jsbridge.git#readme",
   "scripts": {
-    "test:ios:flow": "flow check",
-    "test:android:flow": "flow check --flowconfig-name .flowconfig.android",
     "ci:publish": "yarn semantic-release",
     "ci:test": "yarn ci:test:flow",
     "ci:test:flow": "yarn test:ios:flow && yarn test:android:flow",
     "semantic-release": "semantic-release",
     "flow": "flow",
-    "flow-check-ios": "flow check",
-    "flow-check-android": "flow check --flowconfig-name .flowconfig.android",
     "lint": "eslint ."
   },
   "peerDependencies": {
