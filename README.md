@@ -1,4 +1,13 @@
 # React Native WebView jsbridge - Complete the Correspondence between web and Native
+<p align="left">
+  <a href="https://github.com/23mf/mf-react-native-webview-jsbridge/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="mf-react-native-webview-jsbridge is released under the MIT license." />
+  </a>
+  <a href="https://github.com/23mf/mf-react-native-webview-jsbridge/blob/master/docs/Reference.md">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome!" />
+  </a>
+</p>
+
 
 **React Native WebView jsbridge** 是在[react-native-community/react-native-webview](https://github.com/react-native-community/react-native-webview)基础上开发的native与web的通信，做到开箱即用。
 
