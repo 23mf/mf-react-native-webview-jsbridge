@@ -11,6 +11,15 @@
 
 **React Native WebView jsbridge** 是在[react-native-community/react-native-webview](https://github.com/react-native-community/react-native-webview)基础上开发的native与web的通信，做到开箱即用。
 
+## 目录
+
+* [`支持的平台`](#支持的平台)
+* [`自动安装`](#自动安装)
+* [`手动安装`](#手动安装)
+* [`Native端使用`](#native端使用)
+* [`web端集成`](#web端集成)
+* [`故障排除`](#故障排除)
+
 ## 支持的平台
 
 - [x] iOS (支持 UIWebView，WKWebView)
@@ -70,7 +79,7 @@ import com.reactnativemf.webview.ReactNativeWebViewPackage;
     }
 ```
 
-## 使用
+## Native端使用
 
 Import the `WebView` component from `react-native-webview` and use it like so:
 
@@ -124,6 +133,10 @@ class MyWebComponent extends Component {
 ```
 
 关于webview的[API Reference](./docs/Reference.md)
+
+## web端集成
+
+请参考此文件进行web配置[点击前往](https://github.com/23mf/mf-react-native-webview-jsbridge/blob/master/Example/jsbridge.html);
 
 
 ## 故障排除
