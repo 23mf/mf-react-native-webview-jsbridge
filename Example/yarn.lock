@@ -4265,10 +4265,10 @@ metro@^0.30.0:
     xpipe "^1.0.5"
     yargs "^9.0.0"
 
-mf-react-native-webview-jsbridge@0.1.3:
-  version "0.1.3"
-  resolved "https://registry.npmjs.org/mf-react-native-webview-jsbridge/-/mf-react-native-webview-jsbridge-0.1.3.tgz#9ea67c2823784b4fa061d5f797110b9f32d17756"
-  integrity sha512-pBncgDKf/tPDnpllgjpjtsp16TiRodwDg1v06WEd0M0ER7Gb3YbzyXT4twhUIifLutQr3ELggM7pZmAyrcD91Q==
+mf-react-native-webview-jsbridge@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/mf-react-native-webview-jsbridge/-/mf-react-native-webview-jsbridge-0.1.6.tgz#45c6ac0bd73944fe093541ded9ac140ed0832f9b"
+  integrity sha512-yMamQT6+54Ylfz2p+XZSmuHFc/WX1B7WeiX1I87D2GG2Mpup3/yYFwCstAwiD/nRqiLg0uGW5FNOjzJhocHi9w==
   dependencies:
     escape-string-regexp "^1.0.5"
     fbjs "^0.8.17"
@@ -6125,9 +6125,9 @@ typedarray@^0.0.6:
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
 ua-parser-js@^0.7.18:
-  version "0.7.19"
-  resolved "http://192.168.30.248:4873/ua-parser-js/-/ua-parser-js-0.7.19.tgz#94151be4c0a7fb1d001af7022fdaca4642659e4b"
-  integrity sha512-T3PVJ6uz8i0HzPxOF9SWzWAlfN/DavlpQqepn22xgve/5QecC+XMCAtmUNnY7C9StehaV6exjUCI801lOI7QlQ==
+  version "0.7.31"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.31.tgz#649a656b191dffab4f21d5e053e27ca17cbff5c6"
+  integrity sha512-qLK/Xe9E2uzmYI3qLeOmI0tEOt+TBBQyUIAh4aAgU05FVYzeZrKUdkAZfBNVGRaHVgV0TDkdEngJSw/SyQchkQ==
 
 uglify-es@^3.1.9:
   version "3.3.9"
