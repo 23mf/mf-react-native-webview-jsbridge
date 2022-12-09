@@ -4265,10 +4265,10 @@ metro@^0.30.0:
     xpipe "^1.0.5"
     yargs "^9.0.0"
 
-mf-react-native-webview-jsbridge@0.1.3:
-  version "0.1.3"
-  resolved "https://registry.npmjs.org/mf-react-native-webview-jsbridge/-/mf-react-native-webview-jsbridge-0.1.3.tgz#9ea67c2823784b4fa061d5f797110b9f32d17756"
-  integrity sha512-pBncgDKf/tPDnpllgjpjtsp16TiRodwDg1v06WEd0M0ER7Gb3YbzyXT4twhUIifLutQr3ELggM7pZmAyrcD91Q==
+mf-react-native-webview-jsbridge@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/mf-react-native-webview-jsbridge/-/mf-react-native-webview-jsbridge-0.1.6.tgz#45c6ac0bd73944fe093541ded9ac140ed0832f9b"
+  integrity sha512-yMamQT6+54Ylfz2p+XZSmuHFc/WX1B7WeiX1I87D2GG2Mpup3/yYFwCstAwiD/nRqiLg0uGW5FNOjzJhocHi9w==
   dependencies:
     escape-string-regexp "^1.0.5"
     fbjs "^0.8.17"
@@ -5077,9 +5077,9 @@ punycode@^2.1.0, punycode@^2.1.1:
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
 qs@~6.5.2:
-  version "6.5.2"
-  resolved "http://192.168.30.248:4873/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
-  integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.3.tgz#3aeeffc91967ef6e35c0e488ef46fb296ab76aad"
+  integrity sha512-qxXIEh4pCGfHICj1mAJQ2/2XVZkjCDTcEgfoSQxc/fYivUZxTkk7L3bDBJSoNrEzXI17oUO5Dp07ktqE5KzczA==
 
 randomatic@^3.0.0:
   version "3.1.1"
